@@ -4,7 +4,7 @@ import platform
 import telepot
 import subprocess
 import psutil
-import deluge_handler
+
 
 def handle(msg):
 	chatId = msg['chat']['id']
@@ -28,7 +28,8 @@ def handle(msg):
 		else:
 			bot.sendMessage(chatId, "No process with the name " + sufix + " is running!")
 	elif command == '/torrents':
-		bot.sendMessage(chatId, deluge_handler)
+		from deluge_handler import text
+		bot.sendMessage(chatId, text)
 
 
 
